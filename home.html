@@ -1,0 +1,518 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<title>Loan approval</title>
+	<div class="container py-4">
+		<div class="row">
+
+			<div class="container-fluid pl-">
+				<h1 class="text-primary">Welcome ,Let's check your's Loan Prediction</h1>
+				<p class="text-info">Thank you for visitng. This is a Loan prediction model.</p>
+				<p class="text-info">Here you should give the values and the model will predict does the customer will
+					get loan or not, with
+					confidence.Your data we could not store anywhere, you are safe from data leakage isuue and you can use the model.</p>
+			</div>
+		</div>
+
+
+		<form action="http://127.0.0.1:5000/" method="POST">
+			<div class="col-sm-13">
+				<div class="form-group  purple-border">
+
+					<label for="query1" class="text-warning font-weight-bold">Your anual Income :</label>
+					<textarea class="form-control" rows="2" id="query1" name="query1" rows="2" cols="5"
+						autofocus required>{{query1}}</textarea>
+				</div>
+
+				<div class="form-group  purple-border">
+					<label for="query2" class="text-warning font-weight-bold"> Your Age in years:</label>
+					<textarea class="form-control" rows="2" id="query2" name="query2" rows="2" cols="5"
+						autofocus required>{{query2}}</textarea>
+				</div>
+
+				<div class="form-group  purple-border">
+					<label for="query3" class="text-warning font-weight-bold">Your work experience in years :</label>
+					<textarea class="form-control" rows="2" id="query3" name="query3" rows="2" cols="5"
+						autofocus required>{{query3}}</textarea>
+				</div>
+				<div class="form-group  purple-border">
+					<label for="query4" class="text-warning font-weight-bold"> Choose Your House_Ownership status:</label>
+					<select id="query4" name="query4" required>
+						<option value="rented">I'm living in a rented house.</option>
+						<option value="norent_noown">I'm living in a non rented and not own house.</option>
+						<option value="owned">I'm living in my own house.</option>
+					</select>
+				</div>
+				<div class="form-group  purple-border">
+					<label for="query5" class="text-warning font-weight-bold"> Do you have a own Car:</label>
+					<select id="query5" name="query5" required>
+						<option value="yes">Yes , I've a car.</option>
+						<option value="no">No, I don't have a car.</option>
+					</select>
+				</div>
+
+				<!--form action="/action_page.php" method="get"-->
+				<label for="query6" class="text-warning font-weight-bold">Choose your Profession from the list:</label>
+				<input list="profession" name="query6" id="query6" required>
+				<datalist id="profession">
+					<option value="Mechanical_engineer">
+					<option value="Software_Developer">
+					<option value="Technical_writer">
+					<option value="Civil_servant">
+					<option value="Librarian">
+					<option value="Economist">
+					<option value="Flight_attendant">
+					<option value="Architect">
+					<option value="Designer">
+					<option value="Physician">
+					<option value="Financial_Analyst">
+					<option value="Air_traffic_controller">
+					<option value="Politician">
+					<option value="Police_officer">
+					<option value="Artist">
+					<option value="Surveyor">
+					<option value="Design_Engineer">
+					<option value="Chemical_engineer">
+					<option value="Hotel_Manager">
+					<option value="Dentist">
+					<option value="Comedian">
+					<option value="Biomedical_Engineer">
+					<option value="Graphic_Designer">
+					<option value="Computer_hardware_engineer">
+					<option value="Petroleum_Engineer">
+					<option value="Secretary">
+					<option value="Computer_operator">
+					<option value="Chartered_Accountant">
+					<option value="Technician">
+					<option value="Microbiologist">
+					<option value="Fashion_Designer">
+					<option value="Aviator">
+					<option value="Psychologist">
+					<option value="Magistrate">
+					<option value="Lawyer">
+					<option value="Firefighter">
+					<option value="Engineer">
+					<option value="Official">
+					<option value="Analyst">
+					<option value="Geologist">
+					<option value="Drafter">
+					<option value="Statistician">
+					<option value="Web_designer">
+					<option value="Consultant">
+					<option value="Chef">
+					<option value="Army_officer">
+					<option value="Surgeon">
+					<option value="Scientist">
+					<option value="Civil_engineer">
+					<option value="Industrial_Engineer">
+					<option value="Technology_specialist">
+				</datalist>
+				<!--input type="text"-->
+				<!--/form-->
+				<br>
+				<!--form action="/action_page.php" method="get"-->
+				<label for="query7" class="text-warning font-weight-bold">Choose your current city :</label>
+				<input list="city" name="query7" id="query7" required>
+				<datalist id="city">
+					<option value="Rewa">
+					<option value="Parbhani">
+					<option value="Alappuzha">
+					<option value="Bhubaneswar">
+					<option value="Tiruchirappalli">
+					<option value="Jalgaon">
+					<option value="Tiruppur">
+					<option value="Jamnagar">
+					<option value="Kota">
+					<option value="Karimnagar">
+					<option value="Hajipur">
+					<option value="Adoni">
+					<option value="Erode">
+					<option value="Kollam">
+					<option value="Madurai">
+					<option value="Anantapuram">
+					<option value="Kamarhati">
+					<option value="Bhusawal">
+					<option value="Sirsa">
+					<option value="Amaravati">
+					<option value="Secunderabad">
+					<option value="Ahmedabad">
+					<option value="Ajmer">
+					<option value="Ongole">
+					<option value="Miryalaguda">
+					<option value="Ambattur">
+					<option value="Indore">
+					<option value="Pondicherry">
+					<option value="Shimoga">
+					<option value="Chennai">
+					<option value="Gulbarga">
+					<option value="Khammam">
+					<option value="Saharanpur">
+					<option value="Gopalpur">
+					<option value="Amravati">
+					<option value="Udupi">
+					<option value="Howrah">
+					<option value="Aurangabad">
+					<option value="Hospet">
+					<option value="Shimla">
+					<option value="Khandwa">
+					<option value="Bidhannagar">
+					<option value="Bellary">
+					<option value="Danapur">
+					<option value="Purnia">
+					<option value="Bijapur">
+					<option value="Patiala">
+					<option value="Malda">
+					<option value="Sagar">
+					<option value="Durgapur">
+					<option value="Junagadh">
+					<option value="Singrauli">
+					<option value="Agartala">
+					<option value="Thanjavur">
+					<option value="Hindupur">
+					<option value="Naihati">
+					<option value="North_Dumdum">
+					<option value="Panchkula">
+					<option value="Anantapur">
+					<option value="Serampore">
+					<option value="Bathinda">
+					<option value="Nadiad">
+					<option value="Kanpur">
+					<option value="Haridwar">
+					<option value="Berhampur">
+					<option value="Jamshedpur">
+					<option value="Hyderabad">
+					<option value="Bidar">
+					<option value="Kottayam">
+					<option value="Solapur">
+					<option value="Suryapet">
+					<option value="Aizawl">
+					<option value="Asansol">
+					<option value="Deoghar">
+					<option value="Eluru">
+					<option value="Ulhasnagar">
+					<option value="Aligarh">
+					<option value="South_Dumdum">
+					<option value="Berhampore">
+					<option value="Gandhinagar">
+					<option value="Sonipat">
+					<option value="Muzaffarpur">
+					<option value="Raichur">
+					<option value="Rajpur_Sonarpur">
+					<option value="Ambarnath">
+					<option value="Katihar">
+					<option value="Kozhikode">
+					<option value="Vellore">
+					<option value="Malegaon">
+					<option value="Kochi">
+					<option value="Nagaon">
+					<option value="Nagpur">
+					<option value="Srinagar">
+					<option value="Davanagere">
+					<option value="Bhagalpur">
+					<option value="Siwan">
+					<option value="Meerut">
+					<option value="Dindigul">
+					<option value="Bhatpara">
+					<option value="Ghaziabad">
+					<option value="Kulti">
+					<option value="Chapra">
+					<option value="Dibrugarh">
+					<option value="Panihati">
+					<option value="Bhiwandi">
+					<option value="Morbi">
+					<option value="Kalyan-Dombivli">
+					<option value="Gorakhpur">
+					<option value="Panvel">
+					<option value="Siliguri">
+					<option value="Bongaigaon">
+					<option value="Patna">
+					<option value="Ramgarh">
+					<option value="Ozhukarai">
+					<option value="Mirzapur">
+					<option value="Akola">
+					<option value="Satna">
+					<option value="Motihari">
+					<option value="Jalna">
+					<option value="Jalandhar">
+					<option value="Unnao">
+					<option value="Karnal">
+					<option value="Cuttack">
+					<option value="Proddatur">
+					<option value="Ichalkaranji">
+					<option value="Warangal">
+					<option value="Jhansi">
+					<option value="Bulandshahr">
+					<option value="Narasaraopet">
+					<option value="Chinsurah">
+					<option value="Jehanabad">
+					<option value="Dhanbad">
+					<option value="Gudivada">
+					<option value="Gandhidham">
+					<option value="Raiganj">
+					<option value="Kishanganj">
+					<option value="Varanasi">
+					<option value="Belgaum">
+					<option value="Tirupati">
+					<option value="Tumkur">
+					<option value="Coimbatore">
+					<option value="Kurnool">
+					<option value="Gurgaon">
+					<option value="Muzaffarnagar">
+					<option value="Bhavnagar">
+					<option value="Arrah">
+					<option value="Munger">
+					<option value="Tirunelveli">
+					<option value="Mumbai">
+					<option value="Mango">
+					<option value="Nashik">
+					<option value="Kadapa">
+					<option value="Amritsar">
+					<option value="Khora">
+					<option value="_Ghaziabad">
+					<option value="Ambala">
+					<option value="Agra">
+					<option value="Ratlam">
+					<option value="Surendranagar_Dudhrej">
+					<option value="Delhi_city">
+					<option value="Bhopal">
+					<option value="Hapur">
+					<option value="Rohtak">
+					<option value="Durg">
+					<option value="Korba">
+					<option value="Bangalore">
+					<option value="Shivpuri">
+					<option value="Thrissur">
+					<option value="Vijayanagaram">
+					<option value="Farrukhabad">
+					<option value="Nangloi_Jat">
+					<option value="Madanapalle">
+					<option value="Thoothukudi">
+					<option value="Nagercoil">
+					<option value="Gaya">
+					<option value="Chandigarh_city">
+					<option value="Jammu">
+					<option value="Kakinada">
+					<option value="Dewas">
+					<option value="Bhalswa_Jahangir_Pur">
+					<option value="Baranagar">
+					<option value="Firozabad">
+					<option value="Phusro">
+					<option value="Allahabad">
+					<option value="Guna">
+					<option value="Thane">
+					<option value="Etawah">
+					<option value="Vasai-Virar">
+					<option value="Pallavaram">
+					<option value="Morena">
+					<option value="Ballia">
+					<option value="Surat">
+					<option value="Burhanpur">
+					<option value="Phagwara">
+					<option value="Mau">
+					<option value="Mangalore">
+					<option value="Alwar">
+					<option value="Mahbubnagar">
+					<option value="Maheshtala">
+					<option value="Hazaribagh">
+					<option value="Bihar_Sharif">
+					<option value="Faridabad">
+					<option value="Lucknow">
+					<option value="Tenali">
+					<option value="Barasat">
+					<option value="Amroha">
+					<option value="Giridih">
+					<option value="Begusarai">
+					<option value="Medininagar">
+					<option value="Rajahmundry">
+					<option value="Saharsa">
+					<option value="New_Delhi">
+					<option value="Bhilai">
+					<option value="Moradabad">
+					<option value="Machilipatnam">
+					<option value="Mira-Bhayandar">
+					<option value="Pali">
+					<option value="Navi_Mumbai">
+					<option value="Mehsana">
+					<option value="Imphal">
+					<option value="Kolkata">
+					<option value="Sambalpur">
+					<option value="Ujjain">
+					<option value="Madhyamgram">
+					<option value="Jabalpur">
+					<option value="Jamalpur">
+					<option value="Ludhiana">
+					<option value="Bareilly">
+					<option value="Gangtok">
+					<option value="Anand">
+					<option value="Dehradun">
+					<option value="Pune">
+					<option value="Satara">
+					<option value="Srikakulam">
+					<option value="Raipur">
+					<option value="Jodhpur">
+					<option value="Darbhanga">
+					<option value="Nizamabad">
+					<option value="Nandyal">
+					<option value="Dehri">
+					<option value="Jorhat">
+					<option value="Ranchi">
+					<option value="Kumbakonam">
+					<option value="Guntakal">
+					<option value="Haldia">
+					<option value="Loni">
+					<option value="Pimpri-Chinchwad">
+					<option value="Rajkot">
+					<option value="Nanded">
+					<option value="Noida">
+					<option value="Kirari_Suleman_Nagar">
+					<option value="Jaunpur">
+					<option value="Bilaspur">
+					<option value="Sambhal">
+					<option value="Dhule">
+					<option value="Rourkela">
+					<option value="Thiruvananthapuram">
+					<option value="Dharmavaram">
+					<option value="Nellore">
+					<option value="Visakhapatnam">
+					<option value="Karawal_Nagar">
+					<option value="Jaipur">
+					<option value="Avadi">
+					<option value="Bhimavaram">
+					<option value="Bardhaman">
+					<option value="Silchar">
+					<option value="Buxar">
+					<option value="Kavali">
+					<option value="Tezpur">
+					<option value="Ramagundam">
+					<option value="Yamunanagar">
+					<option value="Sri_Ganganagar">
+					<option value="Sasaram">
+					<option value="Sikar">
+					<option value="Bally">
+					<option value="Bhiwani">
+					<option value="Rampur">
+					<option value="Uluberia">
+					<option value="Sangli-Miraj_&_Kupwad">
+					<option value="Hosur">
+					<option value="Bikaner">
+					<option value="Shahjahanpur">
+					<option value="Sultan_Pur_Majra">
+					<option value="Vijayawada">
+					<option value="Bharatpur">
+					<option value="Tadepalligudem">
+					<option value="Tinsukia">
+					<option value="Salem">
+					<option value="Mathura">
+					<option value="Guntur">
+					<option value="Hubliâ€“Dharwad">
+					<option value="Guwahati">
+					<option value="Chittoor">
+					<option value="Tiruvottiyur">
+					<option value="Vadodara">
+					<option value="Ahmednagar">
+					<option value="Fatehpur">
+					<option value="Bhilwara">
+					<option value="Kharagpur">
+					<option value="Bettiah">
+					<option value="Bhind">
+					<option value="Bokaro">
+					<option value="Karaikudi">
+					<option value="Raebareli">
+					<option value="Pudukkottai">
+					<option value="Udaipur">
+					<option value="Mysore">
+					<option value="Panipat">
+					<option value="Latur">
+					<option value="Tadipatri">
+					<option value="Bahraich">
+					<option value="Orai">
+					<option value="Raurkela_Industrial_Township">
+					<option value="Gwalior">
+					<option value="Katni">
+					<option value="Chandrapur">
+					<option value="Kolhapur">
+				</datalist>
+				<!--input type="submit"-->
+		<!--/form-->
+		<!--form action="/action_page.php" method="get"-->
+		<br>
+			<label for="query8" class="text-warning font-weight-bold">Choose your corrent living state from the list:</label>
+			<input list="state" name="query8" id="query8" required>
+			<datalist id="state">
+				<option value="Uttar_Pradesh">
+				<option value="Maharashtra">
+				<option value="Andhra_Pradesh">
+				<option value="West_Bengal">
+				<option value="Bihar">
+				<option value="Tamil_Nadu">
+				<option value="Madhya_Pradesh">
+				<option value="Karnataka">
+				<option value="Gujarat">
+				<option value="Rajasthan">
+				<option value="Jharkhand">
+				<option value="Haryana">
+				<option value="Telangana">
+				<option value="Assam">
+				<option value="Kerala">
+				<option value="Delhi">
+				<option value="Punjab">
+				<option value="Odisha">
+				<option value="Chhattisgarh">
+				<option value="Uttarakhand">
+				<option value="Jammu_and_Kashmir">
+				<option value="Puducherry">
+				<option value="Manipur">
+				<option value="Mizoram">
+				<option value="Himachal_Pradesh">
+				<option value="Tripura">
+				<option value="Chandigarh">
+				<option value="Sikkim">
+			</datalist>
+			<!--input type="submit"-->
+			<!--/form-->
+	</div>
+	<div class="form-group  purple-border">
+		<label for="query9" class="text-warning font-weight-bold">How long you're doing current job in years :</label>
+		<textarea class="form-control" rows="2" id="query9" name="query9" rows="2" cols="5"
+			autofocus required>{{query9}}</textarea>
+	</div>
+	<div class="form-group  purple-border">
+		<label for="query10" class="text-warning font-weight-bold">How long you're staying current house in years :</label>
+		<textarea class="form-control" rows="2" id="query10" name="query10" rows="2" cols="5"
+			autofocus required>{{query10}}</textarea>
+	</div>
+
+	<div class="form-group  purple-border">
+		<label for="query11" class="text-warning font-weight-bold">Your current status :</label>
+		<select id="query11" name="query11" required>
+			<option value="single">Single    </option>
+			<option value="married">Married  </option>
+		</select>
+	</div>
+	<div class="">
+		<button type="submit" class="btn btn-success" name="submit">SUBMIT</button>
+	</div>
+	
+	<!--hr style="width:70%", size="5", color=black--> 
+
+	<div class="row mt-4">
+		<div class="col-sm-9">
+			<textarea class="form-control text-dark" rows="2" id="output1" name="output1" rows="2" cols="5"
+				autofocus>{{output1}}</textarea>
+			<textarea class="form-control mt-2" rows="2" id="output2" name="output2" rows="2" cols="5"
+				autofocus>{{output2}}</textarea>
+		</div>
+	</div>
+
+
+	</form>
+</body>
+
+</html>
